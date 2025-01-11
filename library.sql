@@ -1,7 +1,7 @@
 /*
  Navicat Premium Dump SQL
 
- Source Server         : MySQL
+ Source Server         : local-mysql
  Source Server Type    : MySQL
  Source Server Version : 80036 (8.0.36)
  Source Host           : localhost:3306
@@ -11,7 +11,7 @@
  Target Server Version : 80036 (8.0.36)
  File Encoding         : 65001
 
- Date: 29/08/2024 23:24:53
+ Date: 11/01/2025 13:19:04
 */
 
 SET NAMES utf8mb4;
@@ -52,6 +52,7 @@ CREATE TABLE `book`  (
   `genre` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL,
   `status` enum('available','not available') CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT 'available',
   `authorid` int NULL DEFAULT NULL,
+  `price` decimal(10, 2) NULL DEFAULT NULL,
   PRIMARY KEY (`bookid`) USING BTREE,
   INDEX `authorid`(`authorid` ASC) USING BTREE,
   CONSTRAINT `book_ibfk_1` FOREIGN KEY (`authorid`) REFERENCES `authors` (`authorid`) ON DELETE RESTRICT ON UPDATE RESTRICT
@@ -60,28 +61,28 @@ CREATE TABLE `book`  (
 -- ----------------------------
 -- Records of book
 -- ----------------------------
-INSERT INTO `book` VALUES (1, 'The Shining', '9780385121680', 'Horror', 'available', 1);
-INSERT INTO `book` VALUES (2, 'Harry Potter and the Philosopher\'s Stone', '9780747532699', 'Fantasy', 'available', 2);
-INSERT INTO `book` VALUES (3, '1984', '9780451524935', 'Dystopian', 'available', 3);
-INSERT INTO `book` VALUES (4, 'To Kill a Mockingbird', '9780061120084', 'Classic', 'available', 4);
-INSERT INTO `book` VALUES (5, 'The Hobbit', '9780547928227', 'Fantasy', 'available', 5);
-INSERT INTO `book` VALUES (6, 'Pet Sematary', '9780743412278', 'Horror', 'available', 1);
-INSERT INTO `book` VALUES (7, 'Animal Farm', '9780451526342', 'Satire', 'available', 3);
-INSERT INTO `book` VALUES (8, 'The Catcher in the Rye', '9780316769488', 'Fiction', 'available', 4);
-INSERT INTO `book` VALUES (9, 'The Lord of the Rings', '9780544003415', 'Fantasy', 'available', 5);
-INSERT INTO `book` VALUES (10, 'It', '9781501142970', 'Horror', 'not available', 1);
-INSERT INTO `book` VALUES (11, 'Brave New World', '9780060850524', 'Science Fiction', 'available', 3);
-INSERT INTO `book` VALUES (12, 'The Great Gatsby', '9780743273565', 'Classic', 'available', 4);
-INSERT INTO `book` VALUES (13, 'Murder on the Orient Express', '9780007119318', 'Mystery', 'available', 6);
-INSERT INTO `book` VALUES (14, 'Foundation', '9780553293357', 'Science Fiction', 'available', 7);
-INSERT INTO `book` VALUES (15, 'The Adventures of Tom Sawyer', '9780486400778', 'Fiction', 'available', 8);
-INSERT INTO `book` VALUES (16, 'The Great Gatsby', '9780743273565', 'Classic', 'available', 9);
-INSERT INTO `book` VALUES (17, 'The Old Man and the Sea', '9780684801223', 'Fiction', 'available', 10);
-INSERT INTO `book` VALUES (18, 'The Murder of Roger Ackroyd', '9780007527491', 'Mystery', 'available', 6);
-INSERT INTO `book` VALUES (19, 'I, Robot', '9780553382563', 'Science Fiction', 'available', 7);
-INSERT INTO `book` VALUES (20, 'Adventures of Huckleberry Finn', '9780486280615', 'Fiction', 'available', 8);
-INSERT INTO `book` VALUES (21, 'Tender Is the Night', '9780684801544', 'Classic', 'available', 9);
-INSERT INTO `book` VALUES (22, 'For Whom the Bell Tolls', '9780684803357', 'Fiction', 'available', 10);
+INSERT INTO `book` VALUES (1, 'The Shining', '9780385121680', 'Horror', 'available', 1, 35.00);
+INSERT INTO `book` VALUES (2, 'Harry Potter and the Philosophers Stone', '9780747532699', 'Fantasy', 'available', 2, 60.00);
+INSERT INTO `book` VALUES (3, '1984', '9780451524935', 'Dystopian', 'not available', 3, 15.00);
+INSERT INTO `book` VALUES (4, 'To Kill a Mockingbird', '9780061120084', 'Classic', 'available', 4, 45.00);
+INSERT INTO `book` VALUES (5, 'The Hobbit', '9780547928227', 'Fantasy', 'available', 5, 50.00);
+INSERT INTO `book` VALUES (6, 'Pet Sematary', '9780743412278', 'Horror', 'available', 1, 17.50);
+INSERT INTO `book` VALUES (7, 'Animal Farm', '9780451526342', 'Satire', 'available', 3, 25.00);
+INSERT INTO `book` VALUES (8, 'The Catcher in the Rye', '9780316769488', 'Fiction', 'available', 4, 30.00);
+INSERT INTO `book` VALUES (9, 'The Lord of the Rings', '9780544003415', 'Fantasy', 'available', 5, 60.00);
+INSERT INTO `book` VALUES (10, 'It', '9781501142970', 'Horror', 'available', 1, 40.00);
+INSERT INTO `book` VALUES (11, 'Brave New World', '9780060850524', 'Science Fiction', 'available', 3, 35.00);
+INSERT INTO `book` VALUES (12, 'The Great Gatsby', '9780743273565', 'Classic', 'available', 4, 30.00);
+INSERT INTO `book` VALUES (13, 'Murder on the Orient Express', '9780007119318', 'Mystery', 'available', 6, 25.00);
+INSERT INTO `book` VALUES (14, 'Foundation', '9780553293357', 'Science Fiction', 'available', 7, 15.00);
+INSERT INTO `book` VALUES (15, 'The Adventures of Tom Sawyer', '9780486400778', 'Fiction', 'not available', 8, 15.00);
+INSERT INTO `book` VALUES (16, 'The Great Gatsby', '9780743273565', 'Classic', 'available', 9, 30.00);
+INSERT INTO `book` VALUES (17, 'The Old Man and the Sea', '9780684801223', 'Fiction', 'available', 10, 20.00);
+INSERT INTO `book` VALUES (18, 'The Murder of Roger Ackroyd', '9780007527491', 'Mystery', 'available', 6, 25.00);
+INSERT INTO `book` VALUES (19, 'I, Robot', '9780553382563', 'Science Fiction', 'available', 7, 15.00);
+INSERT INTO `book` VALUES (20, 'Adventures of Huckleberry Finn', '9780486280615', 'Fiction', 'available', 8, 20.00);
+INSERT INTO `book` VALUES (21, 'Tender Is the Night', '9780684801544', 'Classic', 'available', 9, 30.00);
+INSERT INTO `book` VALUES (22, 'For Whom the Bell Tolls', '9780684803357', 'Fiction', 'available', 10, 15.00);
 
 -- ----------------------------
 -- Table structure for fine
@@ -99,18 +100,35 @@ CREATE TABLE `fine`  (
   INDEX `fk_fine_transactions`(`memberid` ASC) USING BTREE,
   CONSTRAINT `fine_ibfk_1` FOREIGN KEY (`TransactionID`) REFERENCES `transactions` (`transactionid`) ON DELETE RESTRICT ON UPDATE RESTRICT,
   CONSTRAINT `fk_fine_transactions` FOREIGN KEY (`memberid`) REFERENCES `transactions` (`memberid`) ON DELETE RESTRICT ON UPDATE RESTRICT
-) ENGINE = InnoDB AUTO_INCREMENT = 11 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 34 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of fine
 -- ----------------------------
-INSERT INTO `fine` VALUES (1, 11, 2.50, 'Late return of book', b'0', 6);
+INSERT INTO `fine` VALUES (1, 11, 2.50, 'Late return of book', b'1', 6);
 INSERT INTO `fine` VALUES (2, 14, 5.00, 'Late return of book', b'1', 9);
-INSERT INTO `fine` VALUES (6, 25, 5.00, 'Late return of book ID 15', b'0', 7);
+INSERT INTO `fine` VALUES (6, 25, 5.00, 'Late return of book ID 15', b'1', 7);
 INSERT INTO `fine` VALUES (7, 27, 5.00, 'Late return of book ID 9', b'1', 3);
-INSERT INTO `fine` VALUES (8, 26, 20.00, 'Late Return Deadline Surpassed (exceeded 30 days)', b'0', 5);
-INSERT INTO `fine` VALUES (9, 28, 20.00, 'Late Return Deadline Surpassed (exceeded 30 days)', b'0', 6);
-INSERT INTO `fine` VALUES (10, 29, 5.00, 'Late return of book ID 5', b'0', 10);
+INSERT INTO `fine` VALUES (10, 29, 5.00, 'Late return of book ID 5', b'1', 10);
+INSERT INTO `fine` VALUES (13, 26, 5.00, 'Late return of book ID 10', b'1', 5);
+INSERT INTO `fine` VALUES (14, 28, 5.00, 'Late return of book ID 4', b'1', 6);
+INSERT INTO `fine` VALUES (15, 31, 5.00, 'Late return of book ID 20', b'1', 1);
+INSERT INTO `fine` VALUES (17, 39, 5.00, 'Late return of book ID 22', b'1', 5);
+INSERT INTO `fine` VALUES (18, 41, 5.00, 'Late return of book ID 21', b'1', 5);
+INSERT INTO `fine` VALUES (19, 46, 5.00, 'Late return of book ID 1', b'1', 2);
+INSERT INTO `fine` VALUES (20, 47, 5.00, 'Late return of book ID 2', b'1', 2);
+INSERT INTO `fine` VALUES (21, 51, 5.00, 'Late return of book ID 4', b'1', 3);
+INSERT INTO `fine` VALUES (22, 52, 5.00, 'Late return of book ID 5', b'1', 3);
+INSERT INTO `fine` VALUES (23, 53, 5.00, 'Late return of book ID 7', b'1', 7);
+INSERT INTO `fine` VALUES (24, 54, 5.00, 'Late return of book ID 8', b'1', 7);
+INSERT INTO `fine` VALUES (25, 59, 5.00, 'Late return of book ID 13', b'1', 8);
+INSERT INTO `fine` VALUES (26, 57, 5.00, 'Late return of book ID 11', b'1', 8);
+INSERT INTO `fine` VALUES (27, 60, 5.00, 'Late return of book ID 11', b'1', 9);
+INSERT INTO `fine` VALUES (28, 61, 50.00, 'Lost Book', b'1', 5);
+INSERT INTO `fine` VALUES (30, 62, 50.00, 'Lost Book', b'1', 10);
+INSERT INTO `fine` VALUES (31, 63, 50.00, 'Lost Book', b'1', 9);
+INSERT INTO `fine` VALUES (32, 64, 15.00, 'Lost Book', b'1', 9);
+INSERT INTO `fine` VALUES (33, 65, 15.00, 'Lost Book', b'1', 10);
 
 -- ----------------------------
 -- Table structure for inventory
@@ -127,28 +145,48 @@ CREATE TABLE `inventory`  (
 -- ----------------------------
 -- Records of inventory
 -- ----------------------------
-INSERT INTO `inventory` VALUES (1, 5, 5);
-INSERT INTO `inventory` VALUES (2, 3, 3);
-INSERT INTO `inventory` VALUES (3, 2, 2);
+INSERT INTO `inventory` VALUES (1, 5, 4);
+INSERT INTO `inventory` VALUES (2, 3, 2);
+INSERT INTO `inventory` VALUES (3, 1, 0);
 INSERT INTO `inventory` VALUES (4, 4, 3);
-INSERT INTO `inventory` VALUES (5, 6, 7);
+INSERT INTO `inventory` VALUES (5, 3, 3);
 INSERT INTO `inventory` VALUES (6, 2, 2);
-INSERT INTO `inventory` VALUES (7, 5, 5);
+INSERT INTO `inventory` VALUES (7, 5, 6);
 INSERT INTO `inventory` VALUES (8, 7, 7);
 INSERT INTO `inventory` VALUES (9, 3, 3);
-INSERT INTO `inventory` VALUES (10, 1, 0);
+INSERT INTO `inventory` VALUES (10, 1, 1);
 INSERT INTO `inventory` VALUES (11, 4, 4);
 INSERT INTO `inventory` VALUES (12, 5, 5);
 INSERT INTO `inventory` VALUES (13, 6, 6);
 INSERT INTO `inventory` VALUES (14, 2, 2);
-INSERT INTO `inventory` VALUES (15, 1, 1);
+INSERT INTO `inventory` VALUES (15, 1, 0);
 INSERT INTO `inventory` VALUES (16, 3, 3);
 INSERT INTO `inventory` VALUES (17, 4, 4);
 INSERT INTO `inventory` VALUES (18, 6, 6);
-INSERT INTO `inventory` VALUES (19, 7, 7);
+INSERT INTO `inventory` VALUES (19, 6, 6);
 INSERT INTO `inventory` VALUES (20, 2, 1);
-INSERT INTO `inventory` VALUES (21, 5, 5);
-INSERT INTO `inventory` VALUES (22, 10, 8);
+INSERT INTO `inventory` VALUES (21, 5, 4);
+INSERT INTO `inventory` VALUES (22, 10, 9);
+
+-- ----------------------------
+-- Table structure for member_flags
+-- ----------------------------
+DROP TABLE IF EXISTS `member_flags`;
+CREATE TABLE `member_flags`  (
+  `flag_id` int NOT NULL AUTO_INCREMENT,
+  `memberid` int NOT NULL,
+  `flag_status` tinyint(1) NULL DEFAULT NULL,
+  `flag_reason` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL,
+  `flag_date` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`flag_id`) USING BTREE,
+  INDEX `memberid`(`memberid` ASC) USING BTREE,
+  CONSTRAINT `member_flags_ibfk_1` FOREIGN KEY (`memberid`) REFERENCES `members` (`memberid`) ON DELETE CASCADE ON UPDATE RESTRICT
+) ENGINE = InnoDB AUTO_INCREMENT = 27 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = Dynamic;
+
+-- ----------------------------
+-- Records of member_flags
+-- ----------------------------
+INSERT INTO `member_flags` VALUES (26, 4, 1, 'Overdue book: 4', '2025-01-11 12:56:07');
 
 -- ----------------------------
 -- Table structure for members
@@ -178,6 +216,31 @@ INSERT INTO `members` VALUES (9, 'Derek White', '404 Willow Ln, Hamlet, USA', 'd
 INSERT INTO `members` VALUES (10, 'Eva Green', '505 Maple Dr, Countryside, USA', 'eva.green@example.com');
 
 -- ----------------------------
+-- Table structure for staff
+-- ----------------------------
+DROP TABLE IF EXISTS `staff`;
+CREATE TABLE `staff`  (
+  `StaffID` int NOT NULL AUTO_INCREMENT,
+  `Name` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL,
+  `Email` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL,
+  `Role` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL,
+  PRIMARY KEY (`StaffID`) USING BTREE,
+  UNIQUE INDEX `Email`(`Email` ASC) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 9 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = DYNAMIC;
+
+-- ----------------------------
+-- Records of staff
+-- ----------------------------
+INSERT INTO `staff` VALUES (1, 'Sarah Connor', 'sarah.connor@library.com', 'Librarian');
+INSERT INTO `staff` VALUES (2, 'John Reese', 'john.reese@library.com', 'Assistant Librarian');
+INSERT INTO `staff` VALUES (3, 'Ellen Ripley', 'ellen.ripley@library.com', 'Catalog Manager');
+INSERT INTO `staff` VALUES (4, 'Alan Grant', 'alan.grant@library.com', 'Inventory Manager');
+INSERT INTO `staff` VALUES (5, 'Dana Scully', 'dana.scully@library.com', 'Administrator');
+INSERT INTO `staff` VALUES (6, 'Laura Palmer', 'laura.palmer@library.com', 'Archivist');
+INSERT INTO `staff` VALUES (7, 'Gordon Cole', 'gordon.cole@library.com', 'Digital Asset Manager');
+INSERT INTO `staff` VALUES (8, 'Harry Truman', 'harry.truman@library.com', 'Operations Manager');
+
+-- ----------------------------
 -- Table structure for transactions
 -- ----------------------------
 DROP TABLE IF EXISTS `transactions`;
@@ -194,7 +257,7 @@ CREATE TABLE `transactions`  (
   INDEX `memberid`(`memberid` ASC) USING BTREE,
   CONSTRAINT `transactions_ibfk_1` FOREIGN KEY (`bookid`) REFERENCES `book` (`bookid`) ON DELETE RESTRICT ON UPDATE RESTRICT,
   CONSTRAINT `transactions_ibfk_2` FOREIGN KEY (`memberid`) REFERENCES `members` (`memberid`) ON DELETE RESTRICT ON UPDATE RESTRICT
-) ENGINE = InnoDB AUTO_INCREMENT = 33 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 67 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of transactions
@@ -220,13 +283,46 @@ INSERT INTO `transactions` VALUES (22, 10, 1, '2024-07-01', '2024-08-01', '2024-
 INSERT INTO `transactions` VALUES (23, 1, 7, '2024-07-01', '2024-08-01', '2024-07-03', b'0');
 INSERT INTO `transactions` VALUES (24, 15, 7, '2024-07-01', '2024-08-01', '2024-07-04', b'0');
 INSERT INTO `transactions` VALUES (25, 15, 7, '2024-06-01', '2024-07-01', '2024-07-04', b'1');
-INSERT INTO `transactions` VALUES (26, 10, 5, '2024-05-01', '2024-06-01', NULL, b'1');
+INSERT INTO `transactions` VALUES (26, 10, 5, '2024-05-01', '2024-06-01', '2024-07-10', b'1');
 INSERT INTO `transactions` VALUES (27, 9, 3, '2024-06-01', '2024-07-01', '2024-07-04', b'1');
-INSERT INTO `transactions` VALUES (28, 4, 6, '2024-04-03', '2024-05-03', NULL, b'1');
+INSERT INTO `transactions` VALUES (28, 4, 6, '2024-04-03', '2024-05-03', '2024-07-16', b'1');
 INSERT INTO `transactions` VALUES (29, 5, 10, '2024-06-01', '2024-07-01', '2024-07-04', b'1');
-INSERT INTO `transactions` VALUES (30, 22, 6, '2024-08-29', '2024-09-29', NULL, b'0');
-INSERT INTO `transactions` VALUES (31, 20, 1, '2024-08-29', '2024-09-29', NULL, b'0');
-INSERT INTO `transactions` VALUES (32, 22, 4, '2024-08-29', '2024-09-29', NULL, b'0');
+INSERT INTO `transactions` VALUES (30, 22, 6, '2024-08-29', '2024-09-29', '2024-09-26', b'0');
+INSERT INTO `transactions` VALUES (31, 20, 1, '2024-08-29', '2024-09-29', '2025-10-08', b'1');
+INSERT INTO `transactions` VALUES (32, 22, 4, '2024-08-29', '2024-09-29', '2024-09-18', b'0');
+INSERT INTO `transactions` VALUES (33, 3, 1, '2025-01-10', '2025-02-09', '2025-01-10', b'0');
+INSERT INTO `transactions` VALUES (34, 3, 2, '2025-01-10', '2025-02-09', '2025-01-10', b'0');
+INSERT INTO `transactions` VALUES (35, 22, 10, '2025-01-10', '2025-02-09', '2025-01-10', b'0');
+INSERT INTO `transactions` VALUES (36, 22, 10, '2025-01-10', '2025-02-09', NULL, b'0');
+INSERT INTO `transactions` VALUES (37, 21, 10, '2025-01-10', '2025-02-09', NULL, b'0');
+INSERT INTO `transactions` VALUES (38, 20, 10, '2025-01-10', '2025-02-09', NULL, b'0');
+INSERT INTO `transactions` VALUES (39, 22, 5, '2024-11-13', '2024-12-13', '2025-01-10', b'1');
+INSERT INTO `transactions` VALUES (40, 22, 5, '2024-11-13', '2024-12-13', '2024-11-14', b'0');
+INSERT INTO `transactions` VALUES (41, 21, 5, '2024-10-09', '2024-11-09', '2025-01-10', b'1');
+INSERT INTO `transactions` VALUES (42, 1, 1, '2025-01-10', '2025-02-09', NULL, b'0');
+INSERT INTO `transactions` VALUES (43, 3, 1, '2025-01-10', '2025-02-09', NULL, b'0');
+INSERT INTO `transactions` VALUES (44, 2, 1, '2025-01-10', '2025-02-09', NULL, b'0');
+INSERT INTO `transactions` VALUES (46, 1, 2, '2024-11-01', '2024-12-01', '2025-01-10', b'1');
+INSERT INTO `transactions` VALUES (47, 2, 2, '2024-11-01', '2024-12-01', '2025-01-08', b'1');
+INSERT INTO `transactions` VALUES (48, 4, 3, '2024-11-01', '2025-12-01', '2024-11-29', b'0');
+INSERT INTO `transactions` VALUES (49, 5, 3, '2024-11-01', '2024-12-01', '2024-11-29', b'0');
+INSERT INTO `transactions` VALUES (50, 4, 3, '2025-11-01', '2025-12-01', '2024-11-28', b'0');
+INSERT INTO `transactions` VALUES (51, 4, 3, '2024-11-05', '2024-12-05', '2025-01-10', b'1');
+INSERT INTO `transactions` VALUES (52, 5, 3, '2024-11-05', '2024-12-05', '2025-01-10', b'1');
+INSERT INTO `transactions` VALUES (53, 7, 7, '2024-11-01', '2024-12-01', '2025-01-10', b'1');
+INSERT INTO `transactions` VALUES (54, 8, 7, '2024-11-01', '2024-12-01', '2025-01-10', b'1');
+INSERT INTO `transactions` VALUES (55, 7, 7, '2024-11-02', '2024-12-02', '2024-11-05', b'0');
+INSERT INTO `transactions` VALUES (56, 15, 7, '2025-01-01', '2025-02-01', NULL, b'0');
+INSERT INTO `transactions` VALUES (57, 11, 8, '2024-11-01', '2024-12-01', '2025-01-10', b'1');
+INSERT INTO `transactions` VALUES (58, 12, 8, '2024-11-01', '2024-12-01', '2024-11-19', b'0');
+INSERT INTO `transactions` VALUES (59, 13, 8, '2024-11-01', '2024-12-01', '2025-01-10', b'1');
+INSERT INTO `transactions` VALUES (60, 11, 9, '2024-11-01', '2024-12-01', '2024-12-26', b'1');
+INSERT INTO `transactions` VALUES (61, 5, 5, '2024-11-01', '2024-12-01', NULL, b'0');
+INSERT INTO `transactions` VALUES (62, 5, 10, '2024-11-01', '2024-12-01', NULL, b'0');
+INSERT INTO `transactions` VALUES (63, 5, 9, '2024-11-01', '2024-12-01', NULL, b'0');
+INSERT INTO `transactions` VALUES (64, 3, 9, '2024-11-01', '2024-12-01', NULL, b'0');
+INSERT INTO `transactions` VALUES (65, 19, 10, '2024-11-01', '2024-12-01', NULL, b'0');
+INSERT INTO `transactions` VALUES (66, 4, 4, '2024-11-13', '2024-12-13', NULL, b'0');
 
 -- ----------------------------
 -- View structure for bookinventorysummary
@@ -250,13 +346,196 @@ CREATE ALGORITHM = UNDEFINED SQL SECURITY DEFINER VIEW `membertransactions` AS s
 -- View structure for overduebooks
 -- ----------------------------
 DROP VIEW IF EXISTS `overduebooks`;
-CREATE ALGORITHM = UNDEFINED SQL SECURITY DEFINER VIEW `overduebooks` AS select `b`.`title` AS `title`,`b`.`ISBN` AS `ISBN`,`m`.`name` AS `member_name`,`t`.`return_date` AS `return_date`,`t`.`actual_return_date` AS `actual_return_date` from ((`transactions` `t` join `book` `b` on((`t`.`bookid` = `b`.`bookid`))) join `members` `m` on((`t`.`memberid` = `m`.`memberid`))) where ((`t`.`actual_return_date` is null) and (`t`.`return_date` < curdate()));
+CREATE ALGORITHM = UNDEFINED SQL SECURITY DEFINER VIEW `overduebooks` AS select `b`.`title` AS `title`,`b`.`ISBN` AS `ISBN`,`m`.`name` AS `member_name`,`t`.`return_date` AS `return_date`,`t`.`actual_return_date` AS `actual_return_date` from (((`transactions` `t` join `book` `b` on((`t`.`bookid` = `b`.`bookid`))) join `members` `m` on((`t`.`memberid` = `m`.`memberid`))) left join `fine` `f` on(((`t`.`transactionid` = `f`.`TransactionID`) and (`f`.`Reason` = 'Lost Book')))) where ((`t`.`actual_return_date` is null) and (`t`.`return_date` < curdate()) and (`f`.`TransactionID` is null));
 
 -- ----------------------------
 -- View structure for popularbooks
 -- ----------------------------
 DROP VIEW IF EXISTS `popularbooks`;
 CREATE ALGORITHM = UNDEFINED SQL SECURITY DEFINER VIEW `popularbooks` AS select `b`.`bookid` AS `bookid`,`b`.`title` AS `title`,count(`t`.`transactionid`) AS `transaction_count` from (`book` `b` left join `transactions` `t` on((`b`.`bookid` = `t`.`bookid`))) group by `b`.`bookid`,`b`.`title` order by `transaction_count` desc;
+
+-- ----------------------------
+-- Procedure structure for AddTransactions
+-- ----------------------------
+DROP PROCEDURE IF EXISTS `AddTransactions`;
+delimiter ;;
+CREATE DEFINER=`admin`@`localhost` PROCEDURE `AddTransactions`(
+    IN input_memberid INT,
+    IN input_book_titles VARCHAR(255)  -- Comma-separated book titles
+)
+BEGIN
+    DECLARE done INT DEFAULT 0;
+    DECLARE book_id INT;
+    DECLARE book_title VARCHAR(255);
+    DECLARE book_cursor CURSOR FOR 
+        SELECT TRIM(SUBSTRING_INDEX(SUBSTRING_INDEX(input_book_titles, ',', n), ',', -1)) 
+        FROM (SELECT @rownum := @rownum + 1 AS n 
+              FROM information_schema.columns, (SELECT @rownum := 0) r 
+              LIMIT 255) numbers
+        WHERE n <= (LENGTH(input_book_titles) - LENGTH(REPLACE(input_book_titles, ',', '')) + 1);
+
+    -- Declare a handler for when the cursor finishes
+    DECLARE CONTINUE HANDLER FOR NOT FOUND SET done = 1;
+
+    OPEN book_cursor;
+
+    read_loop: LOOP
+        FETCH book_cursor INTO book_title;
+        IF done THEN
+            LEAVE read_loop;
+        END IF;
+
+        -- Retrieve the book ID based on the title
+        SELECT bookid INTO book_id
+        FROM book
+        WHERE title = book_title
+          AND status = 'available'
+        LIMIT 1;
+
+        -- Check if the book exists and is available
+        IF book_id IS NULL THEN
+            -- Return an error if the book is unavailable
+            SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT = 'One or more books are not available or do not exist.';
+        ELSE
+            -- Insert the transaction for each book
+            INSERT INTO transactions (
+                bookid,
+                memberid,
+                borrow_date,
+                return_date,
+                actual_return_date,
+                fine_status
+            ) VALUES (
+                book_id,
+                input_memberid,
+                CURDATE(),
+                CURDATE() + INTERVAL 30 DAY,
+                NULL,
+                0
+            );
+        END IF;
+    END LOOP;
+
+    CLOSE book_cursor;
+END
+;;
+delimiter ;
+
+-- ----------------------------
+-- Procedure structure for LostBookFine
+-- ----------------------------
+DROP PROCEDURE IF EXISTS `LostBookFine`;
+delimiter ;;
+CREATE DEFINER=`admin`@`localhost` PROCEDURE `LostBookFine`(
+    IN p_member_id INT,
+    IN p_bookid INT,
+    IN p_transaction_id INT
+)
+BEGIN
+    DECLARE v_price DECIMAL(10, 2);
+    DECLARE v_total_quantity INT;
+
+    -- Step 1: Fetch the price of the book from the book table
+    SELECT price INTO v_price
+    FROM book
+    WHERE bookid = p_bookid;
+
+    -- Step 2: Check if the price exists, otherwise raise an error
+    IF v_price IS NULL THEN
+        SIGNAL SQLSTATE '45000'
+        SET MESSAGE_TEXT = 'Book price not found for the provided Book ID.';
+    END IF;
+
+    -- Step 3: Fetch the Original_Quantity from the inventory table
+    SELECT Total_Quantity INTO v_total_quantity
+    FROM inventory
+    WHERE BookId = p_bookid;
+
+    -- Step 4: Check if the book exists in inventory and has sufficient quantity
+    IF v_total_quantity IS NULL OR v_total_quantity < 1 THEN
+        SIGNAL SQLSTATE '45000'
+        SET MESSAGE_TEXT = 'Book not available in inventory.';
+    END IF;
+
+    -- Step 5: Insert the fine record into the fines table
+    INSERT INTO fine (TransactionID, Amount, Reason, PaidStatus, memberid)
+    VALUES (p_transaction_id, v_price, 'Lost Book', 0, p_member_id);
+
+    -- Step 6: Update the inventory table to decrease the Original_Quantity by 1
+    UPDATE inventory
+    SET Total_Quantity = Total_Quantity - 1
+    WHERE BookId = p_bookid;
+    
+    -- Step 7: Remove the overdue flag from the member_flags table
+    DELETE FROM member_flags
+    WHERE memberid = p_member_id
+      AND flag_reason LIKE CONCAT('Overdue book: ', p_bookid);
+
+END
+;;
+delimiter ;
+
+-- ----------------------------
+-- Procedure structure for PayFine
+-- ----------------------------
+DROP PROCEDURE IF EXISTS `PayFine`;
+delimiter ;;
+CREATE DEFINER=`admin`@`localhost` PROCEDURE `PayFine`(
+    IN input_memberid INT,
+    IN input_bookid INT
+)
+BEGIN
+    DECLARE fine_exists INT;
+
+    -- Check if there's an unpaid fine for the member and book
+    SELECT COUNT(*) INTO fine_exists
+    FROM fine
+    WHERE memberid = input_memberid
+      AND reason LIKE CONCAT('%', input_bookid, '%')  -- reason stores the bookid
+      AND PaidStatus = 0;  -- Unpaid fine
+
+    -- If a fine exists, mark it as paid
+    IF fine_exists > 0 THEN
+        UPDATE fine
+        SET PaidStatus = 1
+        WHERE memberid = input_memberid
+          AND reason LIKE CONCAT('%', input_bookid, '%')
+          AND PaidStatus = 0;
+
+        -- Optionally, you can also update the transaction or perform other actions if needed
+        -- Example: Log the payment, etc.
+    ELSE
+        SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT = 'No unpaid fine found for the member and book.';
+    END IF;
+END
+;;
+delimiter ;
+
+-- ----------------------------
+-- Procedure structure for UpdateActualReturnDate
+-- ----------------------------
+DROP PROCEDURE IF EXISTS `UpdateActualReturnDate`;
+delimiter ;;
+CREATE DEFINER=`admin`@`localhost` PROCEDURE `UpdateActualReturnDate`(
+    IN input_memberid INT,
+    IN input_bookid INT
+)
+BEGIN
+    -- Update the actual_return_date for the given memberid and bookid
+    UPDATE transactions
+    SET actual_return_date = CURDATE()
+    WHERE memberid = input_memberid
+      AND bookid = input_bookid
+      AND actual_return_date IS NULL;  -- Ensure it only updates if actual_return_date is currently NULL
+
+    -- Optionally, check if a row was updated
+    IF ROW_COUNT() = 0 THEN
+        SIGNAL SQLSTATE '45000'
+        SET MESSAGE_TEXT = 'No matching transaction found for this member and book.';
+    END IF;
+END
+;;
+delimiter ;
 
 -- ----------------------------
 -- Event structure for check_overdue_books
@@ -306,6 +585,56 @@ END
 delimiter ;
 
 -- ----------------------------
+-- Triggers structure for table fine
+-- ----------------------------
+DROP TRIGGER IF EXISTS `flag_unpaid_fines`;
+delimiter ;;
+CREATE TRIGGER `flag_unpaid_fines` AFTER INSERT ON `fine` FOR EACH ROW BEGIN
+    -- Declare a variable to store the bookid
+    DECLARE related_bookid INT;
+
+    -- Check if the fine is unpaid (PaidStatus = 0)
+    IF NEW.PaidStatus = 0 THEN
+        -- Retrieve the bookid from the transactions table based on the fine's transactionid
+        SELECT bookid INTO related_bookid
+        FROM transactions
+        WHERE transactionid = NEW.transactionid;
+        
+        -- Insert a flag for the member with the bookid in flag_reason
+        INSERT INTO member_flags (memberid, flag_status, flag_reason)
+        VALUES (NEW.memberid, TRUE, CONCAT('Unpaid fine for book: ', related_bookid))
+        ON DUPLICATE KEY UPDATE flag_status = TRUE, flag_reason = CONCAT('Unpaid fine for book: ', related_bookid);
+    END IF;
+END
+;;
+delimiter ;
+
+-- ----------------------------
+-- Triggers structure for table fine
+-- ----------------------------
+DROP TRIGGER IF EXISTS `remove_unpaid_fine_flag`;
+delimiter ;;
+CREATE TRIGGER `remove_unpaid_fine_flag` AFTER UPDATE ON `fine` FOR EACH ROW BEGIN
+    -- Declare a variable to store the bookid
+    DECLARE related_bookid INT;
+
+    -- Check if the PaidStatus is changed from 0 to 1 (paid)
+    IF OLD.PaidStatus = 0 AND NEW.PaidStatus = 1 THEN
+        -- Retrieve the bookid from the transactions table based on the fine's transactionid
+        SELECT bookid INTO related_bookid
+        FROM transactions
+        WHERE transactionid = NEW.transactionid;
+        
+        -- Remove the "Unpaid fine" flag from the member_flags table
+        DELETE FROM member_flags
+        WHERE memberid = NEW.memberid
+          AND flag_reason = CONCAT('Unpaid fine for book: ', related_bookid);
+    END IF;
+END
+;;
+delimiter ;
+
+-- ----------------------------
 -- Triggers structure for table inventory
 -- ----------------------------
 DROP TRIGGER IF EXISTS `update_book_status_trigger`;
@@ -348,6 +677,23 @@ delimiter ;
 -- ----------------------------
 -- Triggers structure for table transactions
 -- ----------------------------
+DROP TRIGGER IF EXISTS `flag_overdue_members`;
+delimiter ;;
+CREATE TRIGGER `flag_overdue_members` AFTER INSERT ON `transactions` FOR EACH ROW BEGIN
+    -- Check if the borrow is overdue (30 days without return)
+    IF NEW.actual_return_date IS NULL AND DATEDIFF(CURDATE(), NEW.borrow_date) > 30 THEN
+        -- Insert a separate entry for each overdue book
+        INSERT INTO member_flags (memberid, flag_status, flag_reason)
+        VALUES (NEW.memberid, TRUE, CONCAT('Overdue book: ', NEW.bookid))
+        ON DUPLICATE KEY UPDATE flag_status = TRUE, flag_reason = CONCAT('Overdue book: ', NEW.bookid);
+    END IF;
+END
+;;
+delimiter ;
+
+-- ----------------------------
+-- Triggers structure for table transactions
+-- ----------------------------
 DROP TRIGGER IF EXISTS `calculate_fine_trigger`;
 delimiter ;;
 CREATE TRIGGER `calculate_fine_trigger` BEFORE UPDATE ON `transactions` FOR EACH ROW BEGIN
@@ -375,6 +721,23 @@ CREATE TRIGGER `after_return_trigger` AFTER UPDATE ON `transactions` FOR EACH RO
         UPDATE Inventory
         SET Available_Quantity = Available_Quantity + 1
         WHERE BookID = NEW.bookid;
+    END IF;
+END
+;;
+delimiter ;
+
+-- ----------------------------
+-- Triggers structure for table transactions
+-- ----------------------------
+DROP TRIGGER IF EXISTS `remove_overdue_flag_on_return`;
+delimiter ;;
+CREATE TRIGGER `remove_overdue_flag_on_return` AFTER UPDATE ON `transactions` FOR EACH ROW BEGIN
+    -- Check if the actual_return_date is not null (i.e., the book is returned)
+    IF NEW.actual_return_date IS NOT NULL THEN
+        -- Remove the flag for the specific book that was returned
+        DELETE FROM member_flags
+        WHERE memberid = NEW.memberid
+          AND flag_reason = CONCAT('Overdue book: ', NEW.bookid);
     END IF;
 END
 ;;
