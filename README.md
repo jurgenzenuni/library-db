@@ -12,12 +12,14 @@ The system is built with several features and automated procedures to ensure smo
 - Fine Management: Handles fines for late returns, damaged books, and lost books, ensuring members are charged appropriately.
 - Flag System: A flag system ensures that members with overdue books or fines are not allowed to rent more books until their issues are resolved.
   
-Views: Several views have been implemented to simplify the retrieval of key data, such as OverdueBooks, to display overdue books and track rental status.
-Key Features
+Several views have been implemented to simplify the retrieval of key data, such as OverdueBooks, popular books, and inventory to display overdue books and track rental status.
 
-Automated Triggers: The system utilizes triggers to maintain data integrity and automate certain actions. For example, fines are automatically calculated when books are overdue, and inventory levels are updated when books are rented or returned.
+# Automated Triggers
+The system utilizes triggers to maintain data integrity and automate certain actions. For example, fines are automatically calculated when books are overdue, and inventory levels are updated when books are rented or returned.
 
-Stored Procedures: Simple and reusable stored procedures were created for adding transactions, paying fines, and processing book returns. This allows for easy interaction with the database without the need for complex queries each time.
+# Stored Procedures
+
+Simple and reusable stored procedures were created for adding transactions, paying fines, and processing book returns. This allows for easy interaction with the database without the need for complex queries each time. Some key procedures include:
 
 - Procedure for Handling Late Returns: Automatically calculates fines for overdue books.
 - Procedure for Lost/Damaged Books: Automatically fines the member for lost or damaged books and updates inventory.
