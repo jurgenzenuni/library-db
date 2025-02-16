@@ -26,3 +26,4 @@ Simple and reusable stored procedures were created for adding transactions, payi
 - Return Process: A procedure for marking books as returned, updating the inventory, and removing any overdue flags if applicable.
   
 The system ensures that everything from tracking rentals, updating inventory, handling fines, and processing returns is automated, simplifying the library's workflow and reducing manual errors.
+![library-erd](https://github.com/user-attachments/assets/21bddc86-b9f7-4701-8952-115a67590009)
