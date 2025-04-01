@@ -27,3 +27,10 @@ Simple and reusable stored procedures were created for adding transactions, payi
   
 The system ensures that everything from tracking rentals, updating inventory, handling fines, and processing returns is automated, simplifying the library's workflow and reducing manual errors.
 ![library-erd](https://github.com/user-attachments/assets/21bddc86-b9f7-4701-8952-115a67590009)
+
+# Analysis
+Member Activity, Including Return Rates and Average loan duration 
+![members-activity](https://github.com/user-attachments/assets/0fee9ee9-c932-4d78-8e3c-2a10fb8d8952)
+
+Return Status Details
+![returns-pie](https://github.com/user-attachments/assets/509e2a28-deb7-4273-bd9f-e71839695bf4)
