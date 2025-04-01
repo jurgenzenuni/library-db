@@ -29,8 +29,15 @@ The system ensures that everything from tracking rentals, updating inventory, ha
 ![library-erd](https://github.com/user-attachments/assets/21bddc86-b9f7-4701-8952-115a67590009)
 
 # Analysis
-Member Activity, Including Return Rates and Average loan duration 
+Member Activity, Including Return Rates and Average loan duration
+
 ![members-activity](https://github.com/user-attachments/assets/0fee9ee9-c932-4d78-8e3c-2a10fb8d8952)
 
 Return Status Details
+
 ![returns-pie](https://github.com/user-attachments/assets/509e2a28-deb7-4273-bd9f-e71839695bf4)
+
+Popular Genres and Books, Borrow Trends over time
+
+![popular-genres](https://github.com/user-attachments/assets/da9afefe-c039-45f5-bffa-810b3d0b9079)
+![borrow-trends-over-time](https://github.com/user-attachments/assets/61ac2503-074c-49f8-aaf5-dcce97f53795)
